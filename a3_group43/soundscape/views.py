@@ -10,7 +10,6 @@ def index():
     try:
         events = db.session.query(Event).all()
     except Exception as e:
-        # Handle the exception here, e.g., log it
         print(f"Error fetching events: {e}")
         events = []
 
@@ -24,7 +23,6 @@ def search():
         try:
             events = db.session.query(Event).filter(Event.description.like(query)).all()
         except Exception as e:
-            # Handle the exception here, e.g., log it
             print(f"Error searching events: {e}")
             events = []
         

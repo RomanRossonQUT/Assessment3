@@ -1,4 +1,3 @@
-
 /* Display Uploaded Image To Create Event */
 function readURL(input) {
     if (input.files && input.files[0]) {
