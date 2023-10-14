@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/style/styles.css">
+    <link rel="icon" type="image/x-icon" href="static/img/music-notes.png">
+    <title>SoundScape</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
+        <div class="container-fluid">
+          <img class="nav-logo" src="static/img/music-notes.png">
+          <a class="navbar-brand" href="index.html">SoundScape</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        
+          <div class=" collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ms-auto ">
+              <li class="nav-item">
+                <a class="nav-link mx-2" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link mx-2" href="create_event.html">Create Event</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link mx-2" href="booking_history.html">Booking History</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link mx-2" href="#">Account</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav>    
+  
+    <body class="specific-event-bg">
+      <main>
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-8">
+                      <div class="event-details">
+                          <br>  
+                          <h1>The "Charlie" Live Experience</h1>
+                          <a class="text-white" target="_blank" href="https://www.charlieputh.com/charlietheliveexperience?ref=Typed/Bookmarked"><h3>Charlie Puth</h2></a>
+                          <p>Date: Event Date</p>
+                          <p>Time: Start Time - End Time</p>
+                          <p>Venue: Event Venue</p>
+                          <p>Description: </p>
+  
+                          <div class="booking">
+                              <h2>Book Tickets</h2>
+                              <form>
+                                  <label for="ticket-type">Ticket Type:</label>
+                                  <select id="ticket-type">
+                                      <option value="regular">Regular</option>
+                                      <option value="vip">VIP</option>
+                                  </select>
+                                  <label for="quantity">Quantity:</label>
+                                  <input type="number" id="quantity" min="1" value="1">
+                                  <button type="button" id="book-button">Book Now</button>
+                              </form>
+                          </div>
+
+                          <div class="comments">
+                              <h2>Comments</h2>
+                              <div class="comment">
+                                  <p>User 1:</p>
+                                  <p>Great event! I had an amazing time.</p>
+                              </div>
+                              <div class="comment">
+                                  <p>User 2:</p>
+                                  <p>The venue was fantastic. Can't wait for the next one!</p>
+                              </div>
+                              <br>  
+                              <h3>Post a Comment</h3>
+                              <form id="comment-form">
+                                  <label for="user-comment">Comment:</label><br>  
+                                  <textarea id="user-comment" rows="4" required></textarea>
+                                  <br>
+                                  <button type="submit">Submit</button>
+                              </form>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </main>
+
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+<footer class="text-center text-lg-start text-white footer-bg">
+  <div class="container p-4 pb-0">
+    <section class="">
+      <div class="row">
+        <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+          <h6 class="text-uppercase mb-4 font-weight-bold">Soundscape</h6>
+          <p>Find tickets to concerts, tour dates and live music near Brisbane, Australia.</p>
+        </div>
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+          <h6 class="text-uppercase mb-4 font-weight-bold">NAVIGATION</h6>
+          <div class="row">
+            <div class="col-sm-4">
+              <p><a class="text-white" href="index.html">Home</a></p>
+            </div>
+            <div class="col-sm">
+              <p><a class="text-white" href="create_event.html">Create Event</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <br>
+</footer>
+</html>

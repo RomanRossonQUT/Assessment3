@@ -1,0 +1,352 @@
+body {
+    background-image: url('static/img/crowd.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.footer-gap {
+    padding-bottom: .7rem;
+}
+
+.footer-bg {
+    background-color: #202225;
+}
+
+.nav-logo {
+    width: 3.5rem;
+    padding-right: 1rem;
+}
+
+.footer-logo {
+    width: 7rem;
+    height: 7rem;
+    padding-top: 1.5rem;
+}
+
+/* index.html */
+
+.index-bg {
+    color: #fff;
+    background-image: url('https://images.unsplash.com/photo-1573152958734-1922c188fba3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y29uY2VydCUyMGNyb3dkfGVufDB8fDB8fHww&w=1000&q=80');
+    background-color: #cccccc;
+    height: 50rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.index-bg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 170rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.jumbotron h1{
+    font-weight: 500;
+    margin-top: 10rem;
+    margin-left: 4rem;
+}
+
+.jumbotron p {
+    font-weight: 500;
+    margin-left: 4.5rem;
+}
+
+.navbar-brand {
+    font-weight: 500;
+}
+
+.carousel {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    align-items: right;
+}
+
+.carousel-item img {
+    width: 50rem;
+    height: 100%;
+}
+
+.carousel-caption h2{
+    background-color: rgba(0, 0, 0, 0.25);
+    color: white;
+}
+
+.carousel-control-next-icon {
+    margin-right: 6rem;
+}
+
+.event-cat {
+    margin-bottom: 7rem;
+}
+
+.event-cat h5{
+    color: #000;
+}
+
+.event-cat p {
+    color: #000;
+}
+
+.upcoming-events p{
+    color: #000;
+}
+
+.upcoming-events h5 {
+    color: #000;
+}
+
+/* specific_event.html */
+
+.specific-event-bg {
+    color: #fff;
+    background-image: url('https://www.charlieputh.com/sites/g/files/g2000015081/files/2022-07/OG-lp3-updated.jpg');
+    background-color: #cccccc;
+    height: 50rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.specific-event-bg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 75rem;
+    background-color: rgba(0, 0, 0, 0.75);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.booking {
+    margin-bottom: 10rem;
+}
+
+.comments {
+    margin-bottom: 10rem;
+}
+
+
+/* create_event.html */
+.events {
+    margin-top: 2rem;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 4rem;
+}
+.create-event {
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.concert-img {
+    background-image: url('https://busestoconcerts.com/wp-content/uploads/2017/11/concert-banner.jpg');
+    background-color: #cccccc;
+    height: 50rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.concert-img::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60rem;
+    background-color: rgba(0, 0, 0, 0.75);
+    pointer-events: none;
+    z-index: -1;
+}
+
+#event-name {
+    width: 15rem;
+}
+
+#event-description {
+    width: 20rem;
+}
+
+.register-photo {
+    padding:80px 0;
+}
+
+.register-photo .image-holder {
+    display:table-cell;
+    width:auto;
+    background:url(../../assets/img/meeting.jpg);
+    background-size:cover;
+}
+
+.register-photo .form-container {
+    display:table;
+    max-width: 100rem;
+    margin:0 auto;
+    box-shadow:1px 1px 5px rgba(0,0,0,0.1);
+}
+
+.register-photo form {
+    display:table-cell;
+    width:400px;
+    background-color:#ffffff;
+    padding:40px 60px;
+    color:#505e6c;
+}
+
+@media (max-width:991px) {
+    .register-photo form {
+        padding:40px;
+}
+}
+
+.register-photo form h2 {
+    font-size:24px;
+    line-height:1.5;
+    margin-bottom:30px;
+}
+
+.register-photo form .form-control {
+    background:#f7f9fc;
+    border:none;
+    border-bottom:1px solid #dfe7f1;
+    border-radius:0;
+    box-shadow:none;
+    outline:none;
+    color:inherit;
+    text-indent:6px;
+    height:40px;
+}
+
+.register-photo form .form-check {
+    font-size:13px;
+    line-height:20px;
+}
+
+.register-photo form .btn-primary {
+    background:#f4476b;
+    border:none;
+    border-radius:4px;
+    padding:11px;
+    box-shadow:none;
+    margin-top:35px;
+    text-shadow:none;
+    outline:none !important;
+}
+
+.register-photo form .btn-primary:hover, .register-photo form .btn-primary:active {
+    background:#eb3b60;
+}
+
+.register-photo form .btn-primary:active {
+    transform:translateY(1px);
+}
+
+.register-photo form .already {
+    display:block;
+    text-align:center;
+    font-size:12px;
+    color:#6f7a85;
+    opacity:0.9;
+    text-decoration:none;
+}
+
+
+/* booking_history.html */
+.booking-bg {
+    color: #fff;
+    background-image: url('https://media.istockphoto.com/id/187359244/photo/stage-lights.jpg?s=612x612&w=0&k=20&c=CgtIrS99oaHOVqgnuKggKcfWpnAFfdhtSS-PjnHFQTY=');
+    background-color: #cccccc;
+    height: 42rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.booking-bg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 55rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.booking-history {
+    margin-top: 2rem;
+    min-height: 70vh;
+}
+
+.event-entry {
+    color: #000;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    padding: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.event-image {
+    max-width: 10rem;
+    max-height: 10rem;
+    margin-right: 2rem;
+}
+
+.booking-info {
+    flex-grow: 1;
+}
+
+@media (min-width: 320px) and (max-width: 844px) {
+    .carousel {
+        display: none;
+    }
+}
+
+.image-area {
+    border: 2px dashed rgba(255, 255, 255, 0.7);
+    padding: 1rem;
+    display: flex;
+    justify-content: right;
+    align-items: right;
+}
+
+.image-area::before {
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.8rem;
+    z-index: 1;
+}
+
+.image-area img {
+    z-index: 2;
+    position: relative;
+    max-width: 20rem;
+}

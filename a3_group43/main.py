@@ -1,6 +1,5 @@
-from website import create_app
+from soundscape import create_app
 
-if __name__=='__main__':
-    app=create_app()
-    app.run(debug=True)
-    #disable debug mode once successfully deployed
+if __name__ == '__main__':
+    app = create_app()
+    app.run(debug=True, port=5001)
