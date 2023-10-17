@@ -39,9 +39,11 @@ def create_app():
     from . import api
     app.register_blueprint(api.api_bp)
     
+    """
     @app.errorhandler(404) 
     def not_found(e): 
       return render_template("404.html", error=e)
+      """
 
     @app.context_processor
     def get_context():
