@@ -1,3 +1,4 @@
+/* General Styling */
 body {
     background-image: url('static/img/crowd.jpg');
     background-size: cover;
@@ -5,6 +6,7 @@ body {
     background-attachment: fixed;
 }
 
+/* Footer */
 .footer-gap {
     padding-bottom: .7rem;
 }
@@ -24,8 +26,7 @@ body {
     padding-top: 1.5rem;
 }
 
-/* index.html */
-
+/* Index HTML */
 .index-bg {
     color: #fff;
     background-image: url('https://images.unsplash.com/photo-1573152958734-1922c188fba3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y29uY2VydCUyMGNyb3dkfGVufDB8fDB8fHww&w=1000&q=80');
@@ -106,8 +107,7 @@ body {
     color: #000;
 }
 
-/* specific_event.html */
-
+/* Specific Event HTML */
 .specific-event-bg {
     color: #fff;
     background-image: url('https://www.charlieputh.com/sites/g/files/g2000015081/files/2022-07/OG-lp3-updated.jpg');
@@ -140,7 +140,7 @@ body {
 }
 
 
-/* create_event.html */
+/* Create Event HTML */
 .events {
     margin-top: 2rem;
     color: #fff;
@@ -270,7 +270,7 @@ body {
 }
 
 
-/* booking_history.html */
+/* Booking History HTML */
 .booking-bg {
     color: #fff;
     background-image: url('https://media.istockphoto.com/id/187359244/photo/stage-lights.jpg?s=612x612&w=0&k=20&c=CgtIrS99oaHOVqgnuKggKcfWpnAFfdhtSS-PjnHFQTY=');
