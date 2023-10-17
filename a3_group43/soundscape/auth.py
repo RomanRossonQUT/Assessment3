@@ -24,7 +24,7 @@ def register():
             db.session.commit()
             return redirect(url_for('main.index'))
     else:
-        return render_template('user.html', form=register, heading='Register')
+        return render_template('register.html', form=register, heading='Register')
 
 @authbp.route('/login', methods=['GET', 'POST'])
 def login():
@@ -43,7 +43,7 @@ def login():
             return redirect(url_for('main.index'))
         else:
             flash(error)
-    return render_template('user.html', form=login_form, heading='Login')
+    return render_template('login.html', form=login_form, heading='Login')
 
 @authbp.route('/logout')
 @login_required
