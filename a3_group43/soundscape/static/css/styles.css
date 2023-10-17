@@ -6,11 +6,6 @@ body {
     background-attachment: fixed;
 }
 
-/* Footer */
-.footer-gap {
-    padding-bottom: .7rem;
-}
-
 .footer-bg {
     background-color: #202225;
 }
