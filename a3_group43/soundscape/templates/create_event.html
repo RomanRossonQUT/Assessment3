@@ -1,26 +1,40 @@
 {% extends 'base.html' %}
 {% block content %}
     <main>
+        <!-- Container for creating an event -->
         <div class="container create-event">
+            <!-- Form for event creation -->
             <form action="{{ url_for('process_event') }}" method="POST" enctype="multipart/form-data">
                 <div class="register-photo">
                     <div class="form-container">
                         <div class="image-holder"></div>
+                        <!-- Form for input fields -->
                         <form method="post">
+                            <!-- Heading for the form -->
                             <h2 class="text-center">Create an <strong>Event.</strong></h2><br>
+                            <!-- Input field for event name -->
                             <div class="form-group"><input class="form-control" name="event-name" placeholder="Event Name" required></div><br>
+                            <!-- Input field for event description -->
                             <div class="form-group"><input class="form-control" name="event-description" placeholder="Event Description" required></div><br>
+                            <!-- Label for event logo -->
                             <p class="font-italic text-white text-left">Event Logo</p>
+                            <!-- Input field for uploading image -->
                             <input class="form-group" id="upload" type="file" onchange="readURL(this);"><br><br>
+                            <!-- Information for the uploaded image -->
                             <p class="font-italic text-white text-center">The image uploaded will be rendered inside the box below.</p>
+                            <!-- Image area for previewing the uploaded image -->
                             <div class="image-area mt-4"><img id="imageResult" src="#" alt="" class="img-fluid rounded shadow-sm mx-auto d-block"></div><br>
-
+                            <!-- Input field for event date -->
                             <input class="form-group" type="date" id="event-date" name="event-date" required><br><br>
+                            <!-- Input field for event time -->
                             <input class="form-group" type="time" name="event-time" required><br><br>
+                            <!-- Input field for event venue -->
                             <div class="form-group"><input class="form-control" name="event-venue" placeholder="Event Venue" required></div><br>
+                            <!-- Checkbox for agreeing to the license terms -->
                             <div class="form-group">
                                 <div class="form-check"><label class="form-check-label"><input class="form-check-input" type="checkbox">I agree to the license terms.</label></div>
                             </div><br>
+                            <!-- Button for submitting the form -->
                             <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Create Event</button></div><br>
                         </form>
                     </div>
