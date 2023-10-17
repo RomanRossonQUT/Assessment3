@@ -1,182 +1,176 @@
-
 {% extends 'base.html' %}
 
 {% block header %}   
-
-   <div class="container-fluid">
-      <div class="row">
+<div class="container-fluid">
+    <div class="row">
         <div class="col-md-6">
-          <div class="container mt-5">
-            <div class="jumbotron">
-                <h1 class="display-4">Welcome to SoundScape</h1>
-                <p class="lead">Discover and book the hottest music events!</p>
+            <div class="container mt-5">
+                <div class="jumbotron">
+                    <h1 class="display-4">Welcome to SoundScape</h1>
+                    <p class="lead">Discover and book the hottest music events!</p>
+                </div>
             </div>
         </div>
-      </div>
-
+    </div>
+</div>
 {% endblock %}
 
 {% block content %}
-
-        <div class="col-md-6">
-          <div id="carouselExampleIndicators" class="carousel slide">
-            <div class="carousel-indicators">
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="{{ url_for('static', filename='img/drake.png') }}" >          
-                <div class="carousel-caption d-none d-md-block">
-                  <h2>Drake</h2>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <img src="{{ url_for('static', filename='img/taylor.jpeg') }}" class="d-block" alt="Taylor Swift">
-                <div class="carousel-caption d-none d-md-block">
-                  <h2>Taylor Swift</h2>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <img src="{{ url_for('static', filename='img/yeat.png') }}" class="d-block" alt="Yeat">
-                <div class="carousel-caption d-none d-md-block">
-                  <h2>Yeat</h2>
-                </div>
-              </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>
+<div class="col-md-6">
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
-      </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{{ url_for('static', filename='img/drake.png') }}" class="d-block w-100" alt="Drake">
+                <div class="carousel-caption d-none d-md-block">
+                    <h2>Drake</h2>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="{{ url_for('static', filename='img/taylor.jpeg') }}" class="d-block w-100" alt="Taylor Swift">
+                <div class="carousel-caption d-none d-md-block">
+                    <h2>Taylor Swift</h2>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="{{ url_for('static', filename='img/yeat.png') }}" class="d-block w-100" alt="Yeat">
+                <div class="carousel-caption d-none d-md-block">
+                    <h2>Yeat</h2>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
+</div>
 
-    <section class="upcoming-events">
-      <div class="container mt-5">
-          <h2>Upcoming Events</h2>
-          <br>
-          <div class="row">
-              <div class="col-md-4">
-                  <div class="card">
-                      <img src="{{ url_for('static', filename='img/orangecounty.png') }}" class="card-img-top" alt="Event 1">
-                      <div class="card-body">
-                          <h5 class="card-title">Rex Orange County</h5>
-                          <p class="card-text">Status: Open</p>
-                          <a href="specific_event.html" class="btn btn-dark">Learn More</a>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-md-4">
-                  <div class="card">
-                      <img src="{{ url_for('static', filename='img/charlie.jpg') }}" class="card-img-top" alt="Event 2">
-                      <div class="card-body">
-                          <h5 class="card-title">The "Charlie" Live Experience</h5>
-                          <p class="card-text">Status: Sold Out</p>
-                          <a href="specific_event.html" class="btn btn-dark">Learn More</a>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-md-4">
-                  <div class="card">
-                      <img src="{{ url_for('static', filename='img/postmalone.png') }}" class="card-img-top" alt="Event 3">
-                      <div class="card-body">
-                          <h5 class="card-title">Post Malone - If Y'all Weren't Here</h5>
-                          <p class="card-text">Status: Inactive</p>
-                          <a href="specific_event.html" class="btn btn-dark">Learn More</a>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <br>
-          <div class="row">
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="{{ url_for('static', filename='img/beyonce.jpg') }}" class="card-img-top" alt="Event 4">
-                    <div class="card-body">
-                        <h5 class="card-title">Beyoncé - Renaissance</h5>
-                        <p class="card-text">Status: Tickets Available</p>
-                        <a href="specific_event.html" class="btn btn-dark">Learn More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="{{ url_for('static', filename='img/samsmith.jpg') }}" class="card-img-top" alt="Event 5">
-                    <div class="card-body">
-                        <h5 class="card-title">Sam Smith - Gloria Tour</h5>
-                        <p class="card-text">Status: Upcoming</p>
-                        <a href="specific_event.html" class="btn btn-dark">Learn More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="{{ url_for('static', filename='img/davidgarrett.jpg') }}" class="card-img-top" alt="Event 6">
-                    <div class="card-body">
-                        <h5 class="card-title">David Garrett - Iconic Tour</h5>
-                        <p class="card-text">Status: On Sale Now</p>
-                        <a href="specific_event.html" class="btn btn-dark">Learn More</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
+<section class="upcoming-events">
+  <div class="container mt-5">
+      <h2>Upcoming Events</h2>
       <br>
-    </section>
+      <div class="row">
+          <div class="col-md-4">
+              <div class="card">
+                  <img src="{{ url_for('static', filename='img/orangecounty.png') }}" class="card-img-top" alt="Rex Orange County">
+                  <div class="card-body">
+                      <h5 class="card-title">Rex Orange County</h5>
+                      <p class="card-text">Status: Open</p>
+                      <a href="specific_event.html" class="btn btn-dark">Learn More</a>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-4">
+              <div class="card">
+                  <img src="{{ url_for('static', filename='img/charlie.jpg') }}" class="card-img-top" alt="Event 2">
+                  <div class="card-body">
+                      <h5 class="card-title">The "Charlie" Live Experience</h5>
+                      <p class="card-text">Status: Sold Out</p>
+                      <a href="specific_event.html" class="btn btn-dark">Learn More</a>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-4">
+              <div class="card">
+                  <img src="{{ url_for('static', filename='img/postmalone.png') }}" class="card-img-top" alt="Event 3">
+                  <div class="card-body">
+                      <h5 class="card-title">Post Malone - If Y'all Weren't Here</h5>
+                      <p class="card-text">Status: Inactive</p>
+                      <a href="specific_event.html" class="btn btn-dark">Learn More</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <br>
+      <div class="row">
+          <div class="col-md-4">
+              <div class="card">
+                  <img src="{{ url_for('static', filename='img/beyonce.jpg') }}" class="card-img-top" alt="Event 4">
+                  <div class="card-body">
+                      <h5 class="card-title">Beyoncé - Renaissance</h5>
+                      <p class="card-text">Status: Tickets Available</p>
+                      <a href="specific_event.html" class="btn btn-dark">Learn More</a>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-4">
+              <div class="card">
+                  <img src="{{ url_for('static', filename='img/samsmith.jpg') }}" class="card-img-top" alt="Event 5">
+                  <div class="card-body">
+                      <h5 class="card-title">Sam Smith - Gloria Tour</h5>
+                      <p class="card-text">Status: Upcoming</p>
+                      <a href="specific_event.html" class="btn btn-dark">Learn More</a>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-4">
+              <div class="card">
+                  <img src="{{ url_for('static', filename='img/davidgarrett.jpg') }}" class="card-img-top" alt="Event 6">
+                  <div class="card-body">
+                      <h5 class="card-title">David Garrett - Iconic Tour</h5>
+                      <p class="card-text">Status: On Sale Now</p>
+                      <a href="specific_event.html" class="btn btn-dark">Learn More</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
 
-    <section class="footer-gap">
-      <div class="container mt-5 event-cat">
-        <h2>Event Categories</h2>
-        <br>
-        <div class="row">
+<section class="footer-gap">
+  <div class="container mt-5 event-cat">
+      <h2>Event Categories</h2>
+      <br>
+      <div class="row">
           <div class="col-sm-6">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">RAP & Hip-Hop</h5>
-                <p class="card-text">Discover Rap and Hip-Hop events in All of Australia, shows, artists, performers & teams that you'll love!</p>
-                <a href="#" class="btn btn-dark">View Upcoming Events</a>
+              <div class="card">
+                  <div class="card-body">
+                      <h5 class="card-title">RAP & Hip-Hop</h5>
+                      <p class="card-text">Discover Rap and Hip-Hop events in All of Australia, shows, artists, performers & teams that you'll love!</p>
+                      <a href="#" class="btn btn-dark">View Upcoming Events</a>
+                  </div>
               </div>
-            </div>
           </div>
           <div class="col-sm-6">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">R&B/Soul</h5>
-                <p class="card-text">From Anita Baker and Janet Jackson to Kem and New Edition, here is a list of R&B concerts and tours happening in 2023.</p>
-                <a href="#" class="btn btn-dark">View Upcoming Events</a>
+              <div class="card">
+                  <div class="card-body">
+                      <h5 class="card-title">R&B/Soul</h5>
+                      <p class="card-text">From Anita Baker and Janet Jackson to Kem and New Edition, here is a list of R&B concerts and tours happening in 2023.</p>
+                      <a href="#" class="btn btn-dark">View Upcoming Events</a>
+                  </div>
               </div>
-            </div>
           </div>
-        </div>
-        <br>
-        <div class="row">
+      </div>
+      <br>
+      <div class="row">
           <div class="col-sm-6">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Rock</h5>
-                <p class="card-text">Find Rock concerts happening this weekend near you. Buy tickets for every upcoming concert, festival, gig and tour date taking place in Brisbane.</p>
-                <a href="#" class="btn btn-dark">View Upcoming Events</a>
+              <div class="card">
+                  <div class="card-body">
+                      <h5 class="card-title">Rock</h5>
+                      <p class="card-text">Find Rock concerts happening this weekend near you. Buy tickets for every upcoming concert, festival, gig and tour date taking place in Brisbane.</p>
+                      <a href="#" class="btn btn-dark">View Upcoming Events</a>
+                  </div>
               </div>
-            </div>
           </div>
           <div class="col-sm-6">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Country</h5>
-                <p class="card-text">From Australia's biggest country music festivals to outback races and rodeos ... street party plus rock concerts, markets, and their very own street parade.</p>
-                <a href="#" class="btn btn-dark">View Upcoming Events</a>
+              <div class="card">
+                  <div class="card-body">
+                      <h5 class="card-title">Country</h5>
+                      <p class="card-text">From Australia's biggest country music festivals to outback races and rodeos ... street party plus rock concerts, markets, and their very own street parade.</p>
+                      <a href="#" class="btn btn-dark">View Upcoming Events</a>
+                  </div>
               </div>
-            </div>
           </div>
-        </div>
-    </div>
-    </section>
-
+      </div>
+  </div>
+</section>
 {% endblock %}
