@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -50,12 +51,6 @@
     </div>
   </nav>
 
-  <script src="soundscape/static/js/script.js"></script>
-  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    
       <!-- flashes any messages to the user -->
       {% with messages = get_flashed_messages() %}
       {% if messages %} <!-- check if there are any messages -->
@@ -70,54 +65,36 @@
       </div>
       {% endif %}
       {% endwith %}
-    
-      {% block header %}
 
-      {% endblock %}
-      
-   {% block content %}
+    <!-- Block sections -->
+    {% block header %}
 
-   {% endblock %}
+    {% endblock %}
 
-   <footer class="text-center text-lg-start text-white footer-bg">
-    <div class="container p-4 pb-0">
-      <section>
-        <div class="row">
-          <img class="footer-logo" src="static/img/music-notes.png">
-          <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-            <h6 class="text-uppercase mb-4 font-weight-bold">Soundscape &copy; {{ year }}</h6>
-            <p>Find tickets to concerts, tour dates and live music near Brisbane, Australia.</p>
-          </div>
-          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
-            <h6 class="text-uppercase mb-4 font-weight-bold">NAVIGATION</h6>
-            <div class="row">
-              <div class="col-sm-4">
-                <p><a class="text-white" href="#">Home</a></p>
-              </div>
-              <div class="col-sm">
-                <p><a class="text-white" href="create_event.html">Create Event</a></p>
+    {% block content %}
+
+    {% endblock %}
+
+    <footer class="text-center text-lg-start text-white footer-bg">
+      <div class="container p-4 pb-0">
+        <section>
+          <div class="row">
+            <img class="footer-logo" src="static/img/music-notes.png">
+            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+              <h6 class="text-uppercase mb-4 font-weight-bold">Soundscape &copy; {{ year }}</h6>
+              <p>Find tickets to concerts, tour dates and live music near Brisbane, Australia.</p>
+            </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-    </div>
-    <br>
-  </footer>
-  </body>
-</html>
+        </section>
+      </div>
+    </footer>
 
-   <!-- Footer section -->
-   <footer class="footer">
-    <div class="text-center py-2 bg-light">
-       <div class="footer-text">
-          SoundScape <span>&copy; {{year}} </span>
-       </div>
-    </div>
- </footer>
-
- <!-- Bootstrap JS from CDN -->
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 
 </html>
