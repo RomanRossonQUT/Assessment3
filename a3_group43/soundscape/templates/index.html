@@ -27,13 +27,13 @@
             </div>
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img src="static/img/drake.png" class="d-block" alt="Drake">
+                <img src="{{ url_for('static', filename='img/drake.png') }}" >          
                 <div class="carousel-caption d-none d-md-block">
                   <h2>Drake</h2>
                 </div>
               </div>
               <div class="carousel-item">
-                <img src="static/img/taylor.jpeg" class="d-block" alt="Taylor Swift">
+                <img src="{{ url_for('static', filename='img/taylor.jpeg') }}" class="d-block" alt="Taylor Swift">
                 <div class="carousel-caption d-none d-md-block">
                   <h2>Taylor Swift</h2>
                 </div>
