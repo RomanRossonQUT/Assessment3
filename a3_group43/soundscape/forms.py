@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms.fields import TextAreaField, SubmitField, StringField, PasswordField, DateTimeLocalField
+from wtforms.fields import TextAreaField, SubmitField, StringField, PasswordField, DateField, TimeField,IntegerField,SelectField
 from wtforms.validators import InputRequired, Email, EqualTo
 from flask_wtf.file import FileRequired, FileField, FileAllowed
 
@@ -13,8 +13,12 @@ class EventForm(FlaskForm):
   image = FileField('Event Image', validators=[
     FileRequired(message='Image cannot be empty'),
     FileAllowed(ALLOWED_FILE, message='Only supports PNG, JPG, png, jpg')])
-  event_date = DateTimeLocalField('Date', format='%Y-%m-%dT%H:%M', validators=[InputRequired()])
-  status = StringField('Status')
+  event_date = DateField('Event Date', format='%Y-%m-%d', validators=[InputRequired()])
+  start_time = TimeField('Start Time', format='%H:%M', validators=[InputRequired()])
+  end_time = TimeField('End Time', format='%H:%M', validators=[InputRequired()])
+  tickets_available = IntegerField('Tickets Available', validators=[InputRequired()])
+  event_category = SelectField('Event Category', choices=[('rap/hip-hop', 'RAP & Hip-Hop'), ('r&b/soul', 'R&B/Soul'), ('rock', 'Rock'), ('country', 'Country')], validators=[InputRequired()])
+  status = SelectField('Event Status', choices=[('open', 'Open'), ('closed', 'Closed'), ('upcoming', 'Upcoming'), ('sold-out', 'Sold out')], validators=[InputRequired()])
   submit = SubmitField("Create")
     
 #User login
