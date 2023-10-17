@@ -7,7 +7,7 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(100), index=True, unique=True, nullable=False)
     email = db.Column(db.String(100), index=True, nullable=False)
-    password = db.Column(db.String(255), nullable=False)
+    pass_hash = db.Column(db.String(255), nullable=False)
     comments = db.relationship('Comment', backref='user')
 
     def __repr__(self):
@@ -20,6 +20,7 @@ class Event(db.Model):
     description = db.Column(db.String(200))
     image = db.Column(db.String(400))
     event_date = db.Column(db.DateTime, default=datetime.now())
+    event_price = db.Column(db.Integer)
     status = db.Column(db.String(20))
     comments = db.relationship('Comment', backref='event')
     def __repr__(self):
