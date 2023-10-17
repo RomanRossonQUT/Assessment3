@@ -1,18 +1,24 @@
 {% extends 'base.html' %}
 {% block content %}
     <main>
+        <!-- Main container -->
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
+                    <!-- Event details section -->
                     <div class="event-details">
-                        <br>  
+                        <br>
+                        <!-- Event title -->
                         <h1>The "Charlie" Live Experience</h1>
-                        <a class="text-white" target="_blank" href="https://www.charlieputh.com/charlietheliveexperience?ref=Typed/Bookmarked"><h3>Charlie Puth</h2></a>
+                        <!-- Link to the artist's page -->
+                        <a class="text-white" target="_blank" href="https://www.charlieputh.com/charlietheliveexperience?ref=Typed/Bookmarked"><h3>Charlie Puth</h3></a>
+                        <!-- Displaying event details -->
                         <p>Date: {{ event_date }}</p>
                         <p>Time: {{ start_time }} - {{ end_time }}</p>
                         <p>Venue: {{ event_venue }}</p>
                         <p>Description: {{ event_description }}</p>
 
+                        <!-- Booking section -->
                         <div class="booking">
                             <h2>Book Tickets</h2>
                             <form>
@@ -27,8 +33,10 @@
                             </form>
                         </div>
 
+                        <!-- Comments section -->
                         <div class="comments">
                             <h2>Comments</h2>
+                            <!-- Individual comments -->
                             <div class="comment">
                                 <p>User 1:</p>
                                 <p>Great event! I had an amazing time.</p>
@@ -37,10 +45,11 @@
                                 <p>User 2:</p>
                                 <p>The venue was fantastic. Can't wait for the next one!</p>
                             </div>
-                            <br>  
+                            <br>
+                            <!-- Form for posting a comment -->
                             <h3>Post a Comment</h3>
                             <form id="comment-form">
-                                <label for="user-comment">Comment:</label><br>  
+                                <label for="user-comment">Comment:</label><br>
                                 <textarea id="user-comment" rows="4" required></textarea>
                                 <br>
                                 <button type="submit">Submit</button>
