@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block header %}   
+<!-- Header section -->
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-6">
@@ -16,27 +17,34 @@
 {% endblock %}
 
 {% block content %}
+<!-- Content section -->
 <div class="col-md-6">
+    <!-- Carousel section -->
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
+            <!-- Carousel indicators -->
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
         <div class="carousel-inner">
+            <!-- Carousel items -->
             <div class="carousel-item active">
+                <!-- First carousel item -->
                 <img src="{{ url_for('static', filename='img/drake.png') }}" class="d-block w-100" alt="Drake">
                 <div class="carousel-caption d-none d-md-block">
                     <h2>Drake</h2>
                 </div>
             </div>
             <div class="carousel-item">
+                <!-- Second carousel item -->
                 <img src="{{ url_for('static', filename='img/taylor.jpeg') }}" class="d-block w-100" alt="Taylor Swift">
-                <div class="carousel-caption d-none d-md-block">
+                <div class "carousel-caption d-none d-md-block">
                     <h2>Taylor Swift</h2>
                 </div>
             </div>
             <div class="carousel-item">
+                <!-- Third carousel item -->
                 <img src="{{ url_for('static', filename='img/yeat.png') }}" class="d-block w-100" alt="Yeat">
                 <div class="carousel-caption d-none d-md-block">
                     <h2>Yeat</h2>
@@ -44,10 +52,12 @@
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <!-- Previous button -->
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
         </button>
         <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <!-- Next button -->
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
@@ -55,11 +65,13 @@
 </div>
 
 <section class="upcoming-events">
+  <!-- Upcoming events section -->
   <div class="container mt-5">
       <h2>Upcoming Events</h2>
       <br>
       <div class="row">
           <div class="col-md-4">
+              <!-- Event card 1 -->
               <div class="card">
                   <img src="{{ url_for('static', filename='img/orangecounty.png') }}" class="card-img-top" alt="Rex Orange County">
                   <div class="card-body">
@@ -70,6 +82,7 @@
               </div>
           </div>
           <div class="col-md-4">
+              <!-- Event card 2 -->
               <div class="card">
                   <img src="{{ url_for('static', filename='img/charlie.jpg') }}" class="card-img-top" alt="Event 2">
                   <div class="card-body">
@@ -80,6 +93,7 @@
               </div>
           </div>
           <div class="col-md-4">
+              <!-- Event card 3 -->
               <div class="card">
                   <img src="{{ url_for('static', filename='img/postmalone.png') }}" class="card-img-top" alt="Event 3">
                   <div class="card-body">
@@ -93,6 +107,7 @@
       <br>
       <div class="row">
           <div class="col-md-4">
+              <!-- Event card 4 -->
               <div class="card">
                   <img src="{{ url_for('static', filename='img/beyonce.jpg') }}" class="card-img-top" alt="Event 4">
                   <div class="card-body">
@@ -103,6 +118,7 @@
               </div>
           </div>
           <div class="col-md-4">
+              <!-- Event card 5 -->
               <div class="card">
                   <img src="{{ url_for('static', filename='img/samsmith.jpg') }}" class="card-img-top" alt="Event 5">
                   <div class="card-body">
@@ -113,6 +129,7 @@
               </div>
           </div>
           <div class="col-md-4">
+              <!-- Event card 6 -->
               <div class="card">
                   <img src="{{ url_for('static', filename='img/davidgarrett.jpg') }}" class="card-img-top" alt="Event 6">
                   <div class="card-body">
@@ -126,12 +143,13 @@
   </div>
 </section>
 
-<section class="footer-gap">
+<section>
   <div class="container mt-5 event-cat">
       <h2>Event Categories</h2>
       <br>
       <div class="row">
           <div class="col-sm-6">
+              <!-- Event category card 1 -->
               <div class="card">
                   <div class="card-body">
                       <h5 class="card-title">RAP & Hip-Hop</h5>
@@ -141,6 +159,7 @@
               </div>
           </div>
           <div class="col-sm-6">
+              <!-- Event category card 2 -->
               <div class="card">
                   <div class="card-body">
                       <h5 class="card-title">R&B/Soul</h5>
@@ -153,6 +172,7 @@
       <br>
       <div class="row">
           <div class="col-sm-6">
+              <!-- Event category card 3 -->
               <div class="card">
                   <div class="card-body">
                       <h5 class="card-title">Rock</h5>
@@ -162,6 +182,7 @@
               </div>
           </div>
           <div class="col-sm-6">
+              <!-- Event category card 4 -->
               <div class="card">
                   <div class="card-body">
                       <h5 class="card-title">Country</h5>
