@@ -2,46 +2,64 @@
 <html lang="en">
 
 <head>
+  <!-- Meta tags for character set and responsive design -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Linking Bootstrap CSS library -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <!-- Linking custom stylesheet -->
   <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-  <link rel="icon" type="image/x-icon" href="static/img/music-notes.png">
+  <!-- Favicon for the website -->
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/music-notes.png') }}">
+  <!-- Title of the webpage -->
   <title>SoundScape</title>
 </head>
 
 <body class="index-bg">
 
+  <!-- Navigation bar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
     <div class="container-fluid">
-      <img class="nav-logo" src="static/img/music-notes.png">
+      <!-- Logo and Brand name -->
+      <img class="nav-logo" src="{{ url_for('static', filename='img/music-notes.png') }}">
       <a class="navbar-brand" href="/">SoundScape</a>
+      <!-- Toggler for mobile view -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
     
-      <div class=" collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ms-auto ">
+      <!-- Collapsible navigation links -->
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ms-auto">
+          <!-- Home link -->
           <li class="nav-item">
             <a class="nav-link mx-2 active" href="#">Home</a>
           </li>
+          <!-- Link to create an event -->
           <li class="nav-item">
             <a class="nav-link mx-2" href="{{ url_for('event.create') }}">Create Event</a>
           </li>
+          <!-- Link to booking history -->
           <li class="nav-item">
-            <a class="nav-link mx-2" href="booking_history.html">Booking History</a>
+            <a class="nav-link mx-2" href="{{ url_for('booking_history') }}">Booking History</a>
           </li>
+          <!-- Condition for authenticated users -->
           {% if current_user.is_authenticated %}
+          <!-- Display welcome message with the user's name -->
           <li class="nav-item">
-            <a class="nav-item nav-link disabled text-muted" href="#">Welcome {{current_user.name}}</a>
+            <a class="nav-item nav-link disabled text-muted" href="/">Welcome {{current_user.name}}</a>
           </li>
+          <!-- Logout link for authenticated users -->
           <li class="nav-item">
             <a class="nav-item nav-link" href="{{ url_for('auth.logout') }}">Log Out</a>
           </li>
+          <!-- Condition for unauthenticated users -->
           {% else %}
+          <!-- Link to register page for unauthenticated users -->
           <li class="nav-item">
             <a class="nav-item nav-link" href="{{ url_for('auth.register') }}">Register</a>
           </li>
+          <!-- Link to login page for unauthenticated users -->
           <li class="nav-item">
             <a class="nav-item nav-link" href="{{ url_for('auth.login') }}">Log In</a>
           </li>
@@ -51,50 +69,57 @@
     </div>
   </nav>
 
-      <!-- flashes any messages to the user -->
-      {% with messages = get_flashed_messages() %}
-      {% if messages %} <!-- check if there are any messages -->
-      <div class="container-fluid">
-         <div class="row mt-3 mb-3">
-            <div class="col-md-12">
-            {% for message in messages %} <!--loop through the messages-->
-            <div class="alert alert-info">{{ message }}</div> <!--display as alert-->
-            {% endfor %}
-         </div>
+  <!-- Flash messages section -->
+  <!-- Displays any messages to the user -->
+  {% with messages = get_flashed_messages() %}
+  {% if messages %} <!-- check if there are any messages -->
+  <div class="container-fluid">
+    <div class="row mt-3 mb-3">
+      <div class="col-md-12">
+        {% for message in messages %} <!-- loop through the messages -->
+        <div class="alert alert-info">{{ message }}</div> <!-- display as an alert -->
+        {% endfor %}
       </div>
-      </div>
-      {% endif %}
-      {% endwith %}
+    </div>
+  </div>
+  {% endif %}
+  {% endwith %}
 
-    <!-- Block sections -->
-    {% block header %}
+  <!-- Block sections -->
+  <!-- Header block section -->
+  {% block header %}
 
-    {% endblock %}
+  {% endblock %}
 
-    {% block content %}
+  <!-- Content block section -->
+  {% block content %}
 
-    {% endblock %}
+  {% endblock %}
 
-    <footer class="text-center text-lg-start text-white footer-bg">
-      <div class="container p-4 pb-0">
-        <section>
-          <div class="row">
-            <img class="footer-logo" src="{{ url_for('static', filename='img/music-notes.png') }}">
-            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-              <h6 class="text-uppercase mb-4 font-weight-bold">Soundscape &copy; {{ year }}</h6>
-              <p>Find tickets to concerts, tour dates and live music near Brisbane, Australia.</p>
-            </div>
-              </div>
-            </div>
+  <!-- Footer section -->
+  <footer class="text-center text-lg-start text-white footer-bg">
+    <div class="container p-4 pb-0">
+      <section>
+        <div class="row">
+          <img class="footer-logo" src="{{ url_for('static', filename='img/music-notes.png') }}">
+          <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+            <h6 class="text-uppercase mb-4 font-weight-bold">Soundscape &copy; {{ year }}</h6>
+            <p>Find tickets to concerts, tour dates and live music near Brisbane, Australia.</p>
           </div>
-        </section>
-      </div>
-    </footer>
+        </div>
+      </section>
+    </div>
+  </footer>
 
-    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  <!-- JavaScript dependencies -->
+  <!-- External script for icons -->
+  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+  <!-- jQuery library script -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <!-- Bootstrap JavaScript library script -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <!-- Custom JavaScript script -->
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 
 </html>
