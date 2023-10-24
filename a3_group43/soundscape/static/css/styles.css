@@ -20,9 +20,13 @@ footer {
 }
 
 .footer-logo {
-    width: 7rem;
+    width: 6rem;
     height: 7rem;
     padding-top: 1.5rem;
+}
+
+.footer-text {
+    font-size: 1.2rem;
 }
 
 /* Index HTML */
@@ -310,6 +314,9 @@ footer {
 
 @media (min-width: 320px) and (max-width: 844px) {
     .carousel {
+        display: none;
+    }
+    .footer-logo {
         display: none;
     }
 }
