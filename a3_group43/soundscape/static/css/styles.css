@@ -7,14 +7,11 @@ html, body {
     height: 100%;
     width: 100%;
     margin: 0;
-    display: table;
     background-color: #000000;
 }
 
 footer {
-    display: table-row;
     background-color: #202225;
-    clear: both;
     position: relative;
 }
 .nav-logo {
@@ -32,7 +29,7 @@ footer {
 .index-bg {
     color: #fff;
     background-image: url('https://images.unsplash.com/photo-1573152958734-1922c188fba3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y29uY2VydCUyMGNyb3dkfGVufDB8fDB8fHww&w=1000&q=80');
-    height: 50rem;
+    height: auto;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -47,7 +44,6 @@ footer {
     height: 100%;
     width: 100%;
     margin: 0;
-    display: table;
     background-color: rgba(0, 0, 0, 0.5);
     pointer-events: none;
     z-index: -1;
