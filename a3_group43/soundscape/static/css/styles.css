@@ -25,6 +25,10 @@ footer {
     padding-top: 1.5rem;
 }
 
+.footer-text {
+    font-size: 1.2rem;
+}
+
 /* Index HTML */
 .index-bg {
     color: #fff;
