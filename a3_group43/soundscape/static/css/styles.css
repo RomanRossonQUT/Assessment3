@@ -180,6 +180,11 @@ footer {
     background-size:cover;
 }
 
+.form-label {
+    margin-bottom: 0.5rem;
+    color:#000;
+}
+
 .register-photo .form-container {
     display:table;
     max-width: 100rem;
