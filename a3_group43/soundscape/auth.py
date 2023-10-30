@@ -20,8 +20,8 @@ def register():
         if user:
             flash('Username already exists, please try another.')  # Notifying with message if the username chosen already exists.
             return redirect(url_for('auth.register'))  # Redirecting to the registration page.
-        password_hash = generate_password_hash(password_raw)  # Generating a hash of the password.
-        new_user = User(name=username, password=password_hash, email=email)  # Creating a new User object.
+        pass_hash = generate_password_hash(password_raw)  # Generating a hash of the password.
+        new_user = User(name=username, password=pass_hash, email=email)  # Creating a new User object. #password_hash
         db.session.add(new_user)  # Adding the new user to the session.
         db.session.commit()  # Committing the changes to the database.
         return redirect(url_for('main.index'))  # Redirecting to the main page after successful registration.
@@ -39,7 +39,7 @@ def login():
         user = db.session.scalar(db.select(User).where(User.username == username))  # Querying the database for the user.
         if user is None:
             error = 'Incorrect username.'  # Setting an error message for an incorrect username.
-        elif not check_password_hash(user.password, password):
+        elif not check_password_hash(user.pass_hash, password):
             error = 'Incorrect password.'  # Setting an error message for an incorrect password.
         if error is None:
             login_user(user)  # Logging in the user.
