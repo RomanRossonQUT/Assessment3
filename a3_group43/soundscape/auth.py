@@ -16,7 +16,7 @@ def register():
         username = register.username.data  # Extracting username from the form.
         password_raw = register.password.data  # Extracting password from the form.
         email = register.email.data  # Extracting email from the form.
-        user = db.session.scalar(db.select(User).where(User.name == username))  # Querying the database for existing user.
+        user = db.session.scalar(db.select(User).where(User.username == username))  # Querying the database for existing user.
         if user:
             flash('Username already exists, please try another.')  # Notifying with message if the username chosen already exists.
             return redirect(url_for('auth.register'))  # Redirecting to the registration page.
