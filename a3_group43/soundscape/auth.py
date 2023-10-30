@@ -14,13 +14,13 @@ def register():
     register = RegisterForm()
     if register.validate_on_submit():
         username = register.username.data  # Extracting username from the form.
-        password = register.password.data  # Extracting password from the form.
+        password_raw = register.password.data  # Extracting password from the form.
         email = register.email.data  # Extracting email from the form.
         user = db.session.scalar(db.select(User).where(User.name == username))  # Querying the database for existing user.
         if user:
             flash('Username already exists, please try another.')  # Notifying with message if the username chosen already exists.
             return redirect(url_for('auth.register'))  # Redirecting to the registration page.
-        password_hash = generate_password_hash(password)  # Generating a hash of the password.
+        password_hash = generate_password_hash(password_raw)  # Generating a hash of the password.
         new_user = User(name=username, password=password_hash, email=email)  # Creating a new User object.
         db.session.add(new_user)  # Adding the new user to the session.
         db.session.commit()  # Committing the changes to the database.
