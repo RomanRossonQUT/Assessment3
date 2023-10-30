@@ -21,7 +21,7 @@ def register():
             flash('Username already exists, please try another.')  # Notifying with message if the username chosen already exists.
             return redirect(url_for('auth.register'))  # Redirecting to the registration page.
         pass_hash = generate_password_hash(password_raw)  # Generating a hash of the password.
-        new_user = User(name=username, password=pass_hash, email=email)  # Creating a new User object. #password_hash
+        new_user = User(username=username, password=pass_hash, email=email)  # Creating a new User object. #password_hash
         db.session.add(new_user)  # Adding the new user to the session.
         db.session.commit()  # Committing the changes to the database.
         return redirect(url_for('main.index'))  # Redirecting to the main page after successful registration.
