@@ -16,13 +16,17 @@ class User(db.Model, UserMixin):
 
 class Event(db.Model):
     __tablename__ = 'events'
-    id = db.Column(db.Integer, primary_key=True, nullable=False)
+    id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(50), nullable=False)
     description = db.Column(db.String(400), nullable=False)
     image = db.Column(db.String(400), nullable=False)
-    date = db.Column(db.DateTime, default=datetime.now(), nullable=False)
-    time = db.Column(db.DateTime, default=datetime.now(), nullable=False)
+    date = db.Column(db.Date, default=datetime.now(), nullable=False)
+    start_time = db.Column(db.Time, default=datetime.now(), nullable=False)
+    end_time = db.Column(db.Time, default=datetime.now(), nullable=False)
     status = db.Column(db.String(50), nullable=False)
+    price = db.Column(db.Integer, nullable=False)
+    genre = db.Column(db.String(100), nullable=False)
+    ticket = db.Column(db.Integer, db.ForeignKey('tickets.quantity'), nullable=False)
     #comments = db.relationship('Comment', backref='event')
     def __repr__(self):
         return f"Name: {self.name}"

@@ -14,9 +14,10 @@ class EventForm(FlaskForm):
     FileRequired(message='Image cannot be empty'),
     FileAllowed(ALLOWED_FILE, message='Only supports PNG, JPG, png, jpg')])
   event_date = DateField('Event Date', format='%Y-%m-%d', validators=[InputRequired()])
-  start_time = TimeField('Start Time', format='%H:%M', validators=[InputRequired()])
-  end_time = TimeField('End Time', format='%H:%M', validators=[InputRequired()])
+  start__time = TimeField('Start Time', format='%H:%M', validators=[InputRequired()])
+  end__time = TimeField('End Time', format='%H:%M', validators=[InputRequired()])
   tickets_available = IntegerField('Tickets Available', validators=[InputRequired()])
+  price= IntegerField('Ticket Price', validators=[InputRequired()])
   event_category = SelectField('Event Category', choices=[('rap/hip-hop', 'RAP & Hip-Hop'), ('r&b/soul', 'R&B/Soul'), ('rock', 'Rock'), ('country', 'Country')], validators=[InputRequired()])
   status = SelectField('Event Status', choices=[('open', 'Open'), ('closed', 'Closed'), ('upcoming', 'Upcoming'), ('sold-out', 'Sold out')], validators=[InputRequired()])
   submit = SubmitField("Create")
