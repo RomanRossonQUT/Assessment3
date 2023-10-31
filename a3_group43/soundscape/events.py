@@ -21,7 +21,9 @@ def create():
   form = EventForm()
   if form.validate_on_submit():
     db_file_path = check_upload_file(form)
-    event = Event(name=form.name.data,event=form.event.data, 
+    event = Event(title=form.title.data, description=form.description.data,
+                  date=form.date.data, time=form.time.data, status=form.status.data,
+                  price=form.price.data, genre=form.genre.data,
     image=db_file_path)
     db.session.add(event)
     db.session.commit()
@@ -30,13 +32,16 @@ def create():
   return render_template('events/create.html', form=form)
 
 def check_upload_file(form):
-  fp = form.image.data
-  filename = fp.filename 
-  BASE_PATH = os.path.dirname(__file__)
-  upload_path = os.path.join(BASE_PATH, 'static/image', secure_filename(filename))
-  db_upload_path = '/static/image/' + secure_filename(filename)
-  fp.save(upload_path)
-  return db_upload_path
+    fp = form.image.data
+    filename = fp.filename 
+    BASE_PATH = os.path.dirname(__file__)
+    upload_directory = os.path.join(BASE_PATH, 'static', 'image')
+    if not os.path.exists(upload_directory):
+        os.makedirs(upload_directory) 
+    upload_path = os.path.join(upload_directory, secure_filename(filename))
+    db_upload_path = '/static/image/' + secure_filename(filename)
+    fp.save(upload_path)
+    return db_upload_path
 
 @destbp.route('/<id>/comment', methods=['GET', 'POST'])  
 @login_required
