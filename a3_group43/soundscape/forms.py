@@ -19,7 +19,7 @@ class EventForm(FlaskForm):
   tickets_available = IntegerField('Tickets Available', validators=[InputRequired()])
   price= FloatField('Ticket Price', validators=[InputRequired()])
   event_category = SelectField('Event Category', choices=[('rap/hip-hop', 'RAP & Hip-Hop'), ('r&b/soul', 'R&B/Soul'), ('rock', 'Rock'), ('country', 'Country')], validators=[InputRequired()])
-  status = SelectField('Event Status', choices=[('open', 'Open'), ('closed', 'Closed'), ('upcoming', 'Upcoming'), ('sold-out', 'Sold out')], validators=[InputRequired()])
+  status = SelectField('Event Status', choices=[('Open', 'Open'), ('Closed', 'Closed'), ('Upcoming', 'Upcoming'), ('Sold-Out', 'Sold out')], validators=[InputRequired()])
   submit = SubmitField("Create")
     
 #User login

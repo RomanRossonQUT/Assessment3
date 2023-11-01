@@ -74,7 +74,19 @@
                   <div class="card-body">
                       <h5 class="card-title">{{ event.title }}</h5>
                       <p class="card-text">{{ event.description }} </p>
-                      <p class="card-text">Status: {{ event.status}} </p>
+                      <p class="card-text">Ticket Price: ${{ event.price }} </p>
+                      {% if event.status == 'Open' %}
+                            <p class="card-text">Status: <span style="color: green; font-weight: 600;">{{ event.status }}</span></p>
+                        {% elif event.status == 'Closed' %}
+                            <p class="card-text">Status: <span style="color: darkred; font-weight: 600;"></span>{{ event.status }}</span></p>
+                        {% elif event.status == 'Upcoming' %}
+                            <p class="card-text">Status: <span style="color: yellow; font-weight: 600;">{{ event.status }}</span></p>
+                        {% elif event.status == 'Sold-Out' %}
+                            <p class="card-text">Status: <span style="color: black; font-weight: 600;">{{ event.status }}</span></p>
+                        {% else %}
+                            <p class="card-text" style="color: black;">Status: {{ event.status }}</p>
+                        {% endif %}
+                                         
                       <a href="specific_event.html" class="btn btn-dark">Learn More</a>
                   </div>
               </div>
