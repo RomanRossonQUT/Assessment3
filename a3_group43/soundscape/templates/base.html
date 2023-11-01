@@ -46,7 +46,7 @@
           {% if current_user.is_authenticated %}
           <!-- Display welcome message with the user's name -->
           <li class="nav-item">
-            <a class="nav-item nav-link disabled text-muted" href="/">Welcome {{current_user.name}}</a>
+            <a class="nav-item nav-link disabled text-muted" href="/">Welcome <span>{{current_user.username}}</span></a>
           </li>
           <!-- Logout link for authenticated users -->
           <li class="nav-item">
