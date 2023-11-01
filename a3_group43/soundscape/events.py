@@ -21,16 +21,20 @@ def create():
   form = EventForm()
   if form.validate_on_submit():
     db_file_path = check_upload_file(form)
-    event = Event(title=form.title.data, description=form.description.data,
-                  date=form.event_date.data, start_time=form.start__time.data, 
-                  end_time=form.end__time.data, status=form.status.data,
-                  price=form.price.data, genre=form.event_category.data,
-                  ticket=form.tickets_available.data,
-    image=db_file_path)
+    event = Event(title=form.title.data,
+                  description=form.description.data,
+                  date=form.event_date.data,
+                  start_time=form.start__time.data, 
+                  end_time=form.end__time.data,
+                  status=form.status.data,
+                  price=form.price.data,
+                  genre=form.event_category.data,
+                  tickets_available=form.tickets_available.data,
+                  image=db_file_path)
     db.session.add(event)
     db.session.commit()
     flash('Successfully created new event!', 'success')
-    return redirect(url_for('event.create'))
+    return redirect(url_for('main.index'))
   return render_template('events/create.html', form=form)
 
 def check_upload_file(form):

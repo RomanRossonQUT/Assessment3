@@ -22,10 +22,11 @@ class Event(db.Model):
     image = db.Column(db.String(400))
     date = db.Column(db.Date, default=datetime.now())
     status = db.Column(db.String(50))
-    price = db.Column(db.Integer)
+    price = db.Column(db.Float)
     genre = db.Column(db.String(100))
     start_time = db.Column(db.Time)
     end_time = db.Column(db.Time)
+    tickets_available = db.Column(db.Integer)
     #ticket = db.Column(db.String(50), db.ForeignKey('tickets.event'))
     #comments = db.relationship('Comment', backref='event')
 
