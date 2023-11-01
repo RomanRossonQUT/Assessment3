@@ -6,28 +6,55 @@
 
 <div class="container">
   <!-- Event --> 
-  <br>
-  <div class="row">  
-      <div class="col-md-12">  
-          <div class="card my-3">
-              <div class="card-body"> 
-                  <div class="row align-items-center">  
-                      <div class="col-md-4">
-                          <img class="img-fluid" src="{{ event.image }}">  
-                      </div>
-                      <div class="col-md-2">
-                          <h5>{{ event.title }}</h5>  
-                          <p>{{ event.description }}</p>  
-                          <div class="text-end">
-                              <a href="#" class="btn btn-danger">Book Now</a>
-                          </div>
-                      </div>  
-                  </div>  
-              </div>  
-          </div>  
+  <div class="row booking-form-spacer">
+    <div class="col-md-8"> <!-- Event Info Column -->
+      <div class="card my-3">
+        <div class="card-body">
+          <div class="row align-items-center">
+            <div class="col-md-4">
+              <img class="img-fluid" src="{{ event.image }}">
+            </div>
+            <div class="col-md-8"> <!-- Event Info Column -->
+              <div class="card-body">
+                <h5 class="card-title">{{ event.title }}</h5>
+                <p class="card-text"><i>{{ event.description }}</i></p>
+                <p class="card-text">Venue: <span>{{ event.venue }}</span></p>
+                <p class="card-text">Live on: <span>{{ event.date.strftime('%d-%m-%Y') }}</span></p>
+                <p class="card-text">Ticket Price: <span>${{ event.price }}</span></p>
+                {% if event.status == 'Open' %}
+                <p class="card-text">Status: <span style="color: green;">{{ event.status }}</span></p>
+                {% elif event.status == 'Closed' %}
+                <p class="card-text">Status: <span style="color: darkred;">{{ event.status }}</span></p>
+                {% elif event.status == 'Upcoming' %}
+                <p class="card-text">Status: <span style="color: darkorange;">{{ event.status }}</span></p>
+                {% elif event.status == 'Sold-Out' %}
+                <p class="card-text">Status: <span style="color: darkred;">{{ event.status }}</span></p>
+                {% else %}
+                <p class="card-text" style="color: black;">Status: {{ event.status }}</p>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card my-3">
+        <div class="card-body">
+          <form>
+            <label for="ticket-type">Ticket Type:</label>
+            <select id="ticket-type">
+              <option value="regular">Regular</option>
+              <option value="vip">VIP</option>
+            </select><br><br>
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" min="1" value="1">
+          </form><br>
+          <a type="button" id="book-button" class="btn btn-danger">Book Now</a>
+        </div>
+      </div>
+    </div>
   </div>
-  <hr>
   
   <!-- Comments -->  
   <div class="row">  

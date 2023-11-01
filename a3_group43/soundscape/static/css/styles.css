@@ -143,6 +143,10 @@ span{
     margin-bottom: 10rem;
 }
 
+.booking-form-spacer {
+    margin-top: 11rem;
+}
+
 .comments {
     margin-bottom: 10rem;
 }
@@ -207,7 +211,7 @@ span{
 
 .form-label {
     margin-bottom: 0.5rem;
-    color:#fff;
+    color:#000;
 }
 
 .register-photo .form-container {
@@ -373,8 +377,8 @@ span{
     width: 100%;
     max-width: 400px;
     margin: 0 auto;
-    margin-bottom: 5rem;
-    margin-top: 5rem;
+    margin-bottom: 15rem;
+    margin-top: 15rem;
     padding: 40px;
     background: #ffffff;
     border-radius: 4px;
@@ -393,8 +397,8 @@ span{
     width: 100%;
     max-width: 400px;
     margin: 0 auto;
-    margin-bottom: 5rem;
-    margin-top: 5rem;
+    margin-bottom: 15rem;
+    margin-top: 15rem;
     padding: 40px;
     background: #ffffff;
     border-radius: 4px;
