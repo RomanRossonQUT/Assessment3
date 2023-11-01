@@ -131,8 +131,12 @@ span{
     height: 35rem;
 }
 
-.media-body {
+.card-body {
     color: #000 ;
+}
+
+.comment-space {
+    padding-bottom: 20rem;
 }
 
 .booking {

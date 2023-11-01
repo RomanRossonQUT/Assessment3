@@ -17,14 +17,14 @@ def index():
 
     return render_template('index.html', events=events)  # Rendering the main page template with the events
 
-# Route for searching events
+# Route for searching events by genre
 @mainbp.route('/search')
 def search():
     if 'search' in request.args and request.args['search'] != "":  # Checking if there is a search query
         print(request.args['search'])  # Printing the search query
         query = "%" + request.args['search'] + "%"  # Constructing a query string for the search
         try:
-            events = db.session.query(Event).filter(Event.description.like(query)).all()  # Searching events based on the description
+            events = db.session.query(Event).filter(Event.genre.like(query)).all()  # Searching events based on the genre
         except Exception as e:
             print(f"Error searching events: {e}")  # Printing the error if there's an issue searching events
             events = []  # Setting events to an empty list if there's an error
@@ -32,4 +32,3 @@ def search():
         return render_template('index.html', events=events)  # Rendering the main page template with the search results
     else:
         return redirect(url_for('main.index'))  # Redirecting to the main page if no search query is provided
-

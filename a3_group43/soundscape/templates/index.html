@@ -63,9 +63,18 @@
 <section class="upcoming-events">
     <!-- Upcoming events section -->
     <div class="container mt-5">
-        <h2>Upcoming Events</h2>
+        <h2>
+            {% if request.args.search %}
+                {% set genre_dict = {'rap/hip-hop': 'RAP & Hip-Hop', 'r&b/soul': 'R&B/Soul', 'rock': 'Rock', 'country': 'Country'} %}
+                {% set formatted_genre = genre_dict.get(request.args.search.lower(), request.args.search) %}
+                Upcoming {{ formatted_genre }} Events
+            {% else %}
+                Upcoming Events
+            {% endif %}
+        </h2>
         <br>
         <div class="row">
+            {% if events %}
             {% for event in events %}
             <div class="col-md-4">
                 <!-- Event card 1 -->
@@ -97,6 +106,10 @@
             <div class="row">
             {% endif %}
             {% endfor %}
+
+        {% else %}
+        <h1>None</h1>
+        {% endif %}
         </div>
     </div>
   </section>
@@ -104,7 +117,7 @@
 
 <section>
   <div class="container mt-5 event-cat">
-      <h2>Event Categories</h2>
+      <h2>Event Genres</h2>
       <br>
       <div class="row">
           <div class="col-sm-6">
@@ -113,7 +126,7 @@
                   <div class="card-body">
                       <h5 class="card-title">RAP & Hip-Hop</h5>
                       <p class="card-text">Discover Rap and Hip-Hop events in All of Australia, shows, artists, performers & teams that you'll love!</p>
-                      <a href="#" class="btn btn-dark">View Upcoming Events</a>
+                      <a href="{{ url_for('main.search', search='rap/hip-hop') }}" class="btn btn-dark">View Upcoming Events</a>
                   </div>
               </div>
           </div>
@@ -123,7 +136,7 @@
                   <div class="card-body">
                       <h5 class="card-title">R&B/Soul</h5>
                       <p class="card-text">From Anita Baker and Janet Jackson to Kem and New Edition, here is a list of R&B concerts and tours happening in 2023.</p>
-                      <a href="#" class="btn btn-dark">View Upcoming Events</a>
+                      <a href="{{ url_for('main.search', search='r&b/soul') }}" class="btn btn-dark">View Upcoming Events</a>
                   </div>
               </div>
           </div>
@@ -136,7 +149,7 @@
                   <div class="card-body">
                       <h5 class="card-title">Rock</h5>
                       <p class="card-text">Find Rock concerts happening this weekend near you. Buy tickets for every upcoming concert, festival, gig and tour date taking place in Brisbane.</p>
-                      <a href="#" class="btn btn-dark">View Upcoming Events</a>
+                      <a href="{{ url_for('main.search', search='rock') }}" class="btn btn-dark">View Upcoming Events</a>
                   </div>
               </div>
           </div>
@@ -146,7 +159,7 @@
                   <div class="card-body">
                       <h5 class="card-title">Country</h5>
                       <p class="card-text">From Australia's biggest country music festivals to outback races and rodeos ... street party plus rock concerts, markets, and their very own street parade.</p>
-                      <a href="#" class="btn btn-dark">View Upcoming Events</a>
+                      <a href="{{ url_for('main.search', search='country') }}" class="btn btn-dark">View Upcoming Events</a>
                   </div>
               </div>
           </div>
