@@ -4,26 +4,19 @@
 
 {% block content %}
 
-<div class="container">  
-    <div class="row mt-5 mb-3">  
-      <div class="col-md-12">  
-        <div class="float-left">  
-          <h1 class="mb-0">{{ event.name }}</h1>  
-          <p>Popular Event</p>  
-        </div>  
-      </div>  
-    </div>  
- 
+<div class="container">
+
     <!-- Event --> 
+    <br>
     <div class="row">  
       <div class="col-md-12">  
         <div class="card my-3">
-          <div class="card-body">  
+          <div class="card-body"> 
             <div class="media">  
               <img class="align-self-start mr-3" src="{{ event.image }}">  
-              <div class="media-body">  
-                <small class="font-weight-bold text-muted">Test</small>  
-                <h5 class="mt-0">{{ event.name }}</h5>  
+              <div class="media-body">
+                <br>
+                <h5 class="mt-0">{{ event.title }}</h5>  
                 <p>{{ event.description }}</p>  
                 <a href="#" class="btn btn-danger">Book Now</a>  
               </div>  
@@ -46,11 +39,12 @@
       
       {% for comment in event.comments %}
       <div class="col-md-12">  
-        <b>{{ comment.user.title }} <span class="ml-2 text-muted">January 2024</span></b>
+        <b>{{ comment.user.title }} <span class="ml-2 text-muted">January 2024</span></b> <!--{{ comment.timestamp.strftime('%B %Y') }}-->
         <p>{{ comment.text }}</p>  
       </div> 
       {% endfor %} 
     </div>  
-  </div> 
+  </div>
+  <br>
 
 {% endblock %}

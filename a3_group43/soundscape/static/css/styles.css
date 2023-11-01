@@ -124,8 +124,15 @@ span{
 }
 
 .card-img-top {
-    width: 25rem;
     height: 25rem;
+}
+
+.align-self-start {
+    height: 35rem;
+}
+
+.media-body {
+    color: #000 ;
 }
 
 .booking {

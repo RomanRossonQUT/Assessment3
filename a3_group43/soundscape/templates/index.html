@@ -61,26 +61,26 @@
 </div>
 
 <section class="upcoming-events">
-  <!-- Upcoming events section -->
-  <div class="container mt-5">
-      <h2>Upcoming Events</h2>
-      <br>
-      <div class="row">
-          <div class="col-md-4">
+    <!-- Upcoming events section -->
+    <div class="container mt-5">
+        <h2>Upcoming Events</h2>
+        <br>
+        <div class="row">
             {% for event in events %}
-              <!-- Event card 1 -->
-              <div class="card">
-                  <img src="{{ event.image }}" class="card-img-top" alt="...">
-                  <div class="card-body">
-                      <h5 class="card-title">{{ event.title }}</h5>
-                      <p class="card-text"><i>{{ event.description }}</i></p>
-                      <p class="card-text">Venue: <span>{{ event.venue }}</span></p>
-                      <p class="card-text">Live on: <span>{{ event.date.strftime('%d-%m-%Y') }}</span></p>
-                      <p class="card-text">Ticket Price: <span>${{ event.price }}</span></p>
-                      {% if event.status == 'Open' %}
+            <div class="col-md-4">
+                <!-- Event card 1 -->
+                <div class="card">
+                    <img src="{{ event.image }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ event.title }}</h5>
+                        <p class="card-text"><i>{{ event.description }}</i></p>
+                        <p class="card-text">Venue: <span>{{ event.venue }}</span></p>
+                        <p class="card-text">Live on: <span>{{ event.date.strftime('%d-%m-%Y') }}</span></p>
+                        <p class="card-text">Ticket Price: <span>${{ event.price }}</span></p>
+                        {% if event.status == 'Open' %}
                             <p class="card-text">Status: <span style="color: green;">{{ event.status }}</span></p>
                         {% elif event.status == 'Closed' %}
-                            <p class="card-text">Status: <span style="color: darkred;"></span>{{ event.status }}</span></p>
+                            <p class="card-text">Status: <span style="color: darkred;">{{ event.status }}</span></p>
                         {% elif event.status == 'Upcoming' %}
                             <p class="card-text">Status: <span style="color: darkorange;">{{ event.status }}</span></p>
                         {% elif event.status == 'Sold-Out' %}
@@ -88,13 +88,19 @@
                         {% else %}
                             <p class="card-text" style="color: black;">Status: {{ event.status }}</p>
                         {% endif %}
-                                         
-                      <a href="specific_event.html" class="btn btn-dark">Learn More</a>
-                  </div>
-              </div>
-              {% endfor %}
-          </div>
-</section>
+                        <a href="{{ url_for('event.show', id=event.id) }}" class="btn btn-dark">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            {% if loop.index % 3 == 0 %}
+            </div>
+            <div class="row">
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+  </section>
+  
 
 <section>
   <div class="container mt-5 event-cat">
