@@ -37,11 +37,11 @@ def check_upload_file(form):
     fp = form.image.data
     filename = fp.filename 
     BASE_PATH = os.path.dirname(__file__)
-    upload_directory = os.path.join(BASE_PATH, 'static', 'db_image')
+    upload_directory = os.path.join(BASE_PATH, 'static', 'image')
     if not os.path.exists(upload_directory):
         os.makedirs(upload_directory) 
     upload_path = os.path.join(upload_directory, secure_filename(filename))
-    db_upload_path = '/static/db_image/' + secure_filename(filename)
+    db_upload_path = '/static/image/' + secure_filename(filename)
     fp.save(upload_path)
     return db_upload_path
 
