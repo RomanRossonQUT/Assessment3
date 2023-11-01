@@ -62,27 +62,29 @@
 
 <section class="upcoming-events">
   <!-- Upcoming events section -->
-  {% for event in events %}
   <div class="container mt-5">
       <h2>Upcoming Events</h2>
       <br>
       <div class="row">
           <div class="col-md-4">
+            {% for event in events %}
               <!-- Event card 1 -->
               <div class="card">
                   <img src="{{ event.image }}" class="card-img-top" alt="...">
                   <div class="card-body">
                       <h5 class="card-title">{{ event.title }}</h5>
-                      <p class="card-text">{{ event.description }} </p>
-                      <p class="card-text">Ticket Price: ${{ event.price }} </p>
+                      <p class="card-text"><i>{{ event.description }}</i></p>
+                      <p class="card-text">Venue: <span>{{ event.venue }}</span></p>
+                      <p class="card-text">Live on: <span>{{ event.date.strftime('%d-%m-%Y') }}</span></p>
+                      <p class="card-text">Ticket Price: <span>${{ event.price }}</span></p>
                       {% if event.status == 'Open' %}
-                            <p class="card-text">Status: <span style="color: green; font-weight: 600;">{{ event.status }}</span></p>
+                            <p class="card-text">Status: <span style="color: green;">{{ event.status }}</span></p>
                         {% elif event.status == 'Closed' %}
-                            <p class="card-text">Status: <span style="color: darkred; font-weight: 600;"></span>{{ event.status }}</span></p>
+                            <p class="card-text">Status: <span style="color: darkred;"></span>{{ event.status }}</span></p>
                         {% elif event.status == 'Upcoming' %}
-                            <p class="card-text">Status: <span style="color: yellow; font-weight: 600;">{{ event.status }}</span></p>
+                            <p class="card-text">Status: <span style="color: darkorange;">{{ event.status }}</span></p>
                         {% elif event.status == 'Sold-Out' %}
-                            <p class="card-text">Status: <span style="color: black; font-weight: 600;">{{ event.status }}</span></p>
+                            <p class="card-text">Status: <span style="color: darkred;">{{ event.status }}</span></p>
                         {% else %}
                             <p class="card-text" style="color: black;">Status: {{ event.status }}</p>
                         {% endif %}
@@ -92,68 +94,6 @@
               </div>
               {% endfor %}
           </div>
-    </div>
-
-          <div class="col-md-4">
-              <!-- Event card 2 -->
-              <div class="card">
-                  <img src="{{ url_for('static', filename='img/charlie.jpg') }}" class="card-img-top" alt="Event 2">
-                  <div class="card-body">
-                      <h5 class="card-title">The "Charlie" Live Experience</h5>
-                      <p class="card-text">Status: Sold Out</p>
-                      <a href="specific_event.html" class="btn btn-dark">Learn More</a>
-                  </div>
-              </div>
-          </div>
-          <div class="col-md-4">
-              <!-- Event card 3 -->
-              <div class="card">
-                  <img src="{{ url_for('static', filename='img/postmalone.png') }}" class="card-img-top" alt="Event 3">
-                  <div class="card-body">
-                      <h5 class="card-title">Post Malone - If Y'all Weren't Here</h5>
-                      <p class="card-text">Status: Inactive</p>
-                      <a href="specific_event.html" class="btn btn-dark">Learn More</a>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <br>
-      <div class="row">
-          <div class="col-md-4">
-              <!-- Event card 4 -->
-              <div class="card">
-                  <img src="{{ url_for('static', filename='img/beyonce.jpg') }}" class="card-img-top" alt="Event 4">
-                  <div class="card-body">
-                      <h5 class="card-title">Beyoncé - Renaissance</h5>
-                      <p class="card-text">Status: Tickets Available</p>
-                      <a href="specific_event.html" class="btn btn-dark">Learn More</a>
-                  </div>
-              </div>
-          </div>
-          <div class="col-md-4">
-              <!-- Event card 5 -->
-              <div class="card">
-                  <img src="{{ url_for('static', filename='img/samsmith.jpg') }}" class="card-img-top" alt="Event 5">
-                  <div class="card-body">
-                      <h5 class="card-title">Sam Smith - Gloria Tour</h5>
-                      <p class="card-text">Status: Upcoming</p>
-                      <a href="specific_event.html" class="btn btn-dark">Learn More</a>
-                  </div>
-              </div>
-          </div>
-          <div class="col-md-4">
-              <!-- Event card 6 -->
-              <div class="card">
-                  <img src="{{ url_for('static', filename='img/davidgarrett.jpg') }}" class="card-img-top" alt="Event 6">
-                  <div class="card-body">
-                      <h5 class="card-title">David Garrett - Iconic Tour</h5>
-                      <p class="card-text">Status: On Sale Now</p>
-                      <a href="specific_event.html" class="btn btn-dark">Learn More</a>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
 </section>
 
 <section>

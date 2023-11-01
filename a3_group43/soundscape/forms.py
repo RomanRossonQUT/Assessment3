@@ -8,11 +8,9 @@ ALLOWED_FILE = {'PNG', 'JPG', 'JPEG', 'png', 'jpg', 'jpeg'}
 #Create new event
 class EventForm(FlaskForm):
   title = StringField('Title', validators=[InputRequired()])
-  description = TextAreaField('Description', 
-            validators=[InputRequired()])
-  image = FileField('Event Image', validators=[
-    FileRequired(message='Image cannot be empty'),
-    FileAllowed(ALLOWED_FILE, message='Only supports PNG, JPG, png, jpg')])
+  description = TextAreaField('Description', validators=[InputRequired()])
+  image = FileField('Event Image', validators=[FileRequired(message='Image cannot be empty'), FileAllowed(ALLOWED_FILE, message='Only supports PNG, JPG, png, jpg')])
+  venue = StringField('Venue', validators=[InputRequired()])
   event_date = DateField('Event Date', format='%Y-%m-%d', validators=[InputRequired()])
   start__time = TimeField('Start Time', format='%H:%M', validators=[InputRequired()])
   end__time = TimeField('End Time', format='%H:%M', validators=[InputRequired()])
@@ -32,9 +30,7 @@ class LoginForm(FlaskForm):
 class RegisterForm(FlaskForm):
     username = StringField("User Name", validators=[InputRequired()])
     email = StringField("Email Address", validators=[Email("Please enter a valid email")])
-    
-    password = PasswordField("Password", validators=[InputRequired(),
-                  EqualTo('confirm', message="Passwords should match")])
+    password = PasswordField("Password", validators=[InputRequired(), EqualTo('confirm', message="Passwords should match")])
     confirm = PasswordField("Confirm Password")
     submit = SubmitField("Register")
 

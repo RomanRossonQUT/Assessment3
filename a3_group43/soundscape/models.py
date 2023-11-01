@@ -20,6 +20,7 @@ class Event(db.Model):
     title = db.Column(db.String(50))
     description = db.Column(db.String(400))
     image = db.Column(db.String(400))
+    venue = db.Column(db.String(100))
     date = db.Column(db.Date, default=datetime.now())
     status = db.Column(db.String(50))
     price = db.Column(db.Float)

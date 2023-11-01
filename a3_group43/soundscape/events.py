@@ -23,6 +23,7 @@ def create():
     db_file_path = check_upload_file(form)
     event = Event(title=form.title.data,
                   description=form.description.data,
+                  venue=form.venue.data,
                   date=form.event_date.data,
                   start_time=form.start__time.data, 
                   end_time=form.end__time.data,
