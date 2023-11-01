@@ -56,7 +56,8 @@ def comment(id):
     form = CommentForm()  
     event = db.session.scalar(db.select(Event).where(Event.id==id))
     if form.validate_on_submit():  
-      comment = Comment(description=form.description.data, event=event,
+      comment = Comment(description=form.description.data,
+                        event=event,
                         user=current_user) 
       db.session.add(comment) 
       db.session.commit() 

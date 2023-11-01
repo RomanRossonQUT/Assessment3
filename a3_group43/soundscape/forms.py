@@ -36,5 +36,5 @@ class RegisterForm(FlaskForm):
 
 #User comment
 class CommentForm(FlaskForm):
-  description = TextAreaField('Comment', [InputRequired()])
+  description = TextAreaField('', [InputRequired()])
   submit = SubmitField('Create')
