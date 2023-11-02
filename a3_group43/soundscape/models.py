@@ -39,10 +39,10 @@ class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     description = db.Column(db.String(300))
     created_at = db.Column(db.DateTime, default=datetime.now())
-    event = db.Column(db.Integer)
-    #event = db.Column(db.Integer, db.ForeignKey('events.id'))
-    #event = db.relationship('Event', backref=db.backref('comments', lazy=True))
-    user = db.Column(db.String(100), db.ForeignKey('users.username'))
+    event_id = db.Column(db.Integer, db.ForeignKey('events.id'))
+    event = db.relationship('Event', backref='comments', lazy=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    user = db.relationship('User', backref='comments', lazy=True)
 
     def __repr__(self):
         return f"Comment: {self.text}"

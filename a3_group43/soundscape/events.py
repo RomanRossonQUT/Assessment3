@@ -61,5 +61,36 @@ def comment(id):
                         user=current_user) 
       db.session.add(comment) 
       db.session.commit() 
-      flash('Your comment has been added', 'success')  
+      flash('Your comment has been added.', 'success')  
+    return redirect(url_for('event.show', id=id))
+
+@destbp.route('/<id>/comment/delete/<comment_id>', methods=['POST'])
+@login_required
+def delete_comment(id, comment_id):
+    comment = Comment.query.filter_by(id=comment_id).first()
+    if comment:
+        if comment.user.username == current_user.username:
+            db.session.delete(comment)
+            db.session.commit()
+            flash('Comment deleted successfully.', 'success')
+        else:
+            flash('You are not authorized to delete this comment.', 'error')
+    return redirect(url_for('event.show', id=id))
+
+@destbp.route('/<id>/book', methods=['POST'])
+@login_required
+def book_event(id):
+    event = Event.query.get(id)
+    if event:
+        ticket_type = request.form['ticket_type']
+        quantity = request.form['quantity']
+        # You can create a new Booking model to store the booking information in the database.
+        # Implement the logic to create a new booking and associate it with the current user and the selected event.
+        # Example:
+        # booking = Booking(user=current_user, event=event, ticket_type=ticket_type, quantity=quantity)
+        # db.session.add(booking)
+        # db.session.commit()
+        flash('Event booked successfully.', 'success')
+    else:
+        flash('Event not found.', 'error')
     return redirect(url_for('event.show', id=id))
