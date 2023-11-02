@@ -55,6 +55,18 @@ def delete_event(id):
         flash('You are not authorized to delete this event.', 'error')
     return redirect(url_for('main.index'))
 
+@destbp.route('/<id>/update_status', methods=['POST'])
+@login_required
+def update_status(id):
+    event = Event.query.get(id)
+    if event:
+        new_status = request.form.get('status')
+        event.status = new_status
+        db.session.commit()
+        flash('Event status updated successfully.', 'success')
+    else:
+        flash('Event not found.', 'error')
+    return redirect(url_for('event.show', id=id))
 
 def check_upload_file(form):
     fp = form.image.data
