@@ -32,6 +32,7 @@
                 {% else %}
                 <p class="card-text" style="color: black;">Status: {{ event.status }}</p>
                 {% endif %}
+                {% if current_user.is_authenticated and event.user_id == current_user.id %}
                   <form method="post" action="{{ url_for('event.update_status', id=event.id) }}">Change Status: 
                       <select name="status" id="status" onchange="this.form.submit()">
                           <option value="Open" {% if event.status == 'Open' %} selected {% endif %}>Open</option>
@@ -40,6 +41,7 @@
                           <option value="Sold-Out" {% if event.status == 'Sold-Out' %} selected {% endif %}>Sold-Out</option>
                       </select>
                   </form>
+                  {% endif %}  
                   <br>
                 {% if current_user.is_authenticated and event.user_id == current_user.id %}
                 <form method="post" action="{{ url_for('event.delete_event', id=event.id) }}">
