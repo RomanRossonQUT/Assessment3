@@ -40,7 +40,7 @@
           </li>
           <!-- Link to booking history -->
           <li class="nav-item">
-            <a class="nav-link mx-2" href="#">Booking History</a>
+            <a class="nav-link mx-2" href="{{ url_for('event.booking_history') }}">Booking History</a>
           </li>
           <!-- Condition for authenticated users -->
           {% if current_user.is_authenticated %}

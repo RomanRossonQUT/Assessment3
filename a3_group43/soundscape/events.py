@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
-from .models import Event, Comment
+from .models import Event, Comment, Booking
 from .forms import EventForm, CommentForm
+from datetime import datetime
 from . import db
 import os
 from werkzeug.utils import secure_filename
@@ -82,15 +83,24 @@ def delete_comment(id, comment_id):
 def book_event(id):
     event = Event.query.get(id)
     if event:
-        ticket_type = request.form['ticket_type']
+        type = request.form['type']
         quantity = request.form['quantity']
-        # You can create a new Booking model to store the booking information in the database.
-        # Implement the logic to create a new booking and associate it with the current user and the selected event.
-        # Example:
-        # booking = Booking(user=current_user, event=event, ticket_type=ticket_type, quantity=quantity)
-        # db.session.add(booking)
-        # db.session.commit()
+        booking = Booking(
+            user=current_user,
+            event=event,
+            type=type,
+            quantity=quantity,
+            booking_date=datetime.now())
+        db.session.add(booking)
+        db.session.commit()
         flash('Event booked successfully.', 'success')
     else:
         flash('Event not found.', 'error')
     return redirect(url_for('event.show', id=id))
+
+@destbp.route('/booking-history')
+@login_required
+def booking_history():
+    # Query the database to get the booking history of the current user
+    bookings = Booking.query.filter_by(user_id=current_user.id).all()
+    return render_template('booking_history.html', bookings=bookings)

@@ -6,58 +6,27 @@
 
 {% block content %}
 
-<body class="booking-bg">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
-      <div class="container-fluid">
-        <img class="nav-logo" src="static/img/music-notes.png">
-        <a class="navbar-brand" href="index.html">SoundScape</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        <div class=" collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav ms-auto ">
-            <li class="nav-item">
-              <a class="nav-link mx-2" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link mx-2" href="create_event.html">Create Event</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link mx-2 active" href="#">Booking History</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link mx-2" href="#">Account</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-  </nav>   
-    
-    <main>
-      <div class="container booking-history">
-          <h1>User Booking History</h1>
-          <div class="booking-history">
-              <div class="event-entry">
-                  <img src="static/img/charlie.jpg" alt="Event Image" class="event-image">
-                  <div class="booking-info">
-                      <h2>The "Charlie" Live Experience</h2>
-                      <p><strong>Booking/Order ID:</strong> ABC123456</p>
-                      <p><strong>Booking Date:</strong> June 1, 2023, 3:30 PM</p>
-                  </div>
+<main>
+  <div class="container booking-history">
+      <h1>User Booking History</h1>
+      {% if not bookings %}
+        <h1><strong>You have no bookings!</strong></h1>
+      {% else %}
+      <div class="booking-history">
+          {% for booking in bookings %}
+          <div class="event-entry">
+              <img src="{{ booking.event.image }}" alt="Event Image" class="event-image">
+              <div class="booking-info">
+                  <h2>{{ booking.event.title }}</h2>
+                  <p><strong>Booking/Order ID:</strong> {{ booking.id }}</p>
+                  <p><strong>Booking Date:</strong> {{ booking.booking_date.strftime('%B %d, %Y, %I:%M %p') }}</p>
+                  <a href="{{ url_for('event.show', id=booking.event.id) }}" class="btn btn-primary">View Event</a>
               </div>
-
-              <div class="event-entry">
-                  <img src="static/img/postmalone.png" alt="Event Image" class="event-image">
-                  <div class="booking-info">
-                      <h2>EPost Malone - If Y'all Weren't Here</h2>
-                      <p><strong>Booking/Order ID:</strong> DEF789012</p>
-                      <p><strong>Booking Date:</strong> July 15, 2023, 7:45 AM</p>
-                  </div>
-              </div>
-
           </div>
+          {% endfor %}
       </div>
-  </main>
+      {% endif %}
+  </div>
+</main>
 
 {% endblock %}

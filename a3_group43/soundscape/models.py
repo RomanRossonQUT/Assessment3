@@ -54,3 +54,14 @@ class Ticket(db.Model):
     #event = db.Column(db.String(50), db.ForeignKey('events.id'))
     quantity = db.Column(db.Integer)
     #price = db.Column(db.Integer, db.ForeignKey('events.price'))
+
+class Booking(db.Model):
+    __tablename__ = 'bookings'
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    user = db.relationship('User', backref='bookings', lazy=True)
+    event_id = db.Column(db.Integer, db.ForeignKey('events.id'))
+    event = db.relationship('Event', backref='bookings', lazy=True)
+    type = db.Column(db.String(20))
+    quantity = db.Column(db.Integer)
+    booking_date = db.Column(db.DateTime, default=datetime.now())
