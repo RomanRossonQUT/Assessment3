@@ -84,7 +84,11 @@ def book_event(id):
     event = Event.query.get(id)
     if event:
         type = request.form['type']
-        quantity = request.form['quantity']
+        quantity = int(request.form['quantity'])
+
+        if quantity > event.tickets_available:
+            flash('Tickets not available. Please try booking a lower quantity.', 'error')
+            return redirect(url_for('event.show', id=id))
         booking = Booking(
             user=current_user,
             event=event,
@@ -92,6 +96,7 @@ def book_event(id):
             quantity=quantity,
             booking_date=datetime.now())
         db.session.add(booking)
+        event.tickets_available -= quantity
         db.session.commit()
         flash('Event booked successfully.', 'success')
     else:

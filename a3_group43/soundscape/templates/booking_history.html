@@ -18,6 +18,7 @@
               <img src="{{ booking.event.image }}" alt="Event Image" class="event-image">
               <div class="booking-info">
                   <h2>{{ booking.event.title }}</h2>
+                  <p><strong>Tickets Booked:</strong> {{ booking.quantity }}</p>
                   <p><strong>Booking/Order ID:</strong> {{ booking.id }}</p>
                   <p><strong>Booking Date:</strong> {{ booking.booking_date.strftime('%B %d, %Y, %I:%M %p') }}</p>
                   <a href="{{ url_for('event.show', id=booking.event.id) }}" class="btn btn-primary">View Event</a>
