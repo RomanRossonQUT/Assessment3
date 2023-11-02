@@ -9,7 +9,6 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(100))
     email = db.Column(db.String(100))
     pass_hash = db.Column(db.String(255))
-    #comments = db.relationship('Comment', backref='user')
 
     def __repr__(self):
         return f"Name: {self.name}"
@@ -28,8 +27,6 @@ class Event(db.Model):
     start_time = db.Column(db.Time)
     end_time = db.Column(db.Time)
     tickets_available = db.Column(db.Integer)
-    #ticket = db.Column(db.String(50), db.ForeignKey('tickets.event'))
-    #comments = db.relationship('Comment', backref='event')
 
     def __repr__(self):
         return f"Name: {self.name}"
@@ -46,14 +43,6 @@ class Comment(db.Model):
 
     def __repr__(self):
         return f"Comment: {self.text}"
-    
-class Ticket(db.Model):
-    __tablename__ = 'tickets'
-    id = db.Column(db.Integer, primary_key=True)
-    user = db.Column(db.String(100), db.ForeignKey('users.username'))
-    #event = db.Column(db.String(50), db.ForeignKey('events.id'))
-    quantity = db.Column(db.Integer)
-    #price = db.Column(db.Integer, db.ForeignKey('events.price'))
 
 class Booking(db.Model):
     __tablename__ = 'bookings'
