@@ -99,12 +99,13 @@
                         {% endif %}
                         <a href="{{ url_for('event.show', id=event.id) }}" class="btn btn-dark">Learn More</a>
                         {% if current_user.is_authenticated and event.user_id == current_user.id %}
-                        <form method="post" action="{{ url_for('event.delete', id=event.id) }}">
+                        <form method="post" action="{{ url_for('event.delete_event', id=event.id) }}">
                             <button type="submit" class="btn btn-danger mt-2">Delete Event</button>
                         </form>
-                    {% endif %}
+                        {% endif %}
                     </div>
                 </div>
+                <br>
             </div>
             {% if loop.index % 3 == 0 %}
             </div>

@@ -32,12 +32,29 @@ def create():
                   price=form.price.data,
                   genre=form.event_category.data,
                   tickets_available=form.tickets_available.data,
-                  image=db_file_path)
+                  image=db_file_path,
+                  user_id=current_user.id)
     db.session.add(event)
     db.session.commit()
     flash('Successfully created new event!', 'success')
     return redirect(url_for('main.index'))
   return render_template('events/create.html', form=form)
+
+@destbp.route('/events/<int:id>/delete', methods=['POST'])
+@login_required
+def delete_event(id):
+    event = Event.query.get_or_404(id)
+    if event.user_id == current_user.id:
+        bookings = Booking.query.filter_by(event_id=id).all()
+        for booking in bookings:
+            db.session.delete(booking)
+        db.session.delete(event)
+        db.session.commit()
+        flash('Event has been deleted.', 'success')
+    else:
+        flash('You are not authorized to delete this event.', 'error')
+    return redirect(url_for('main.index'))
+
 
 def check_upload_file(form):
     fp = form.image.data

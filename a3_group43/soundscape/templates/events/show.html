@@ -32,6 +32,11 @@
                 {% else %}
                 <p class="card-text" style="color: black;">Status: {{ event.status }}</p>
                 {% endif %}
+                {% if current_user.is_authenticated and event.user_id == current_user.id %}
+                        <form method="post" action="{{ url_for('event.delete_event', id=event.id) }}">
+                            <button type="submit" class="btn btn-danger mt-2">Delete Event</button>
+                        </form>
+                        {% endif %}
               </div>
             </div>
           </div>

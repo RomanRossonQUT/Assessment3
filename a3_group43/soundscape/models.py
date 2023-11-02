@@ -27,6 +27,8 @@ class Event(db.Model):
     start_time = db.Column(db.Time)
     end_time = db.Column(db.Time)
     tickets_available = db.Column(db.Integer)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    user = db.relationship('User', backref='events', lazy=True)
 
     def __repr__(self):
         return f"Name: {self.name}"
