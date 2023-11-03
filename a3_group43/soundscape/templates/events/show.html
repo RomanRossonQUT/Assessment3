@@ -21,6 +21,14 @@
                 <p class="card-text">Venue: <span>{{ event.venue }}</span></p>
                 <p class="card-text">Live on: <span>{{ event.date.strftime('%d-%m-%Y') }}</span></p>
                 <p class="card-text">Ticket Price: <span>${{ event.price }}</span></p>
+                <p class="card-text">Tickets Available: <span>{{ event.tickets_available }}</span></p>
+                {% if current_user.is_authenticated and event.user_id == current_user.id %}
+                <form method="post" action="{{ url_for('event.update_tickets_available', id=event.id) }}">Change Available Tickets:
+                  <button type="submit" name="change" value="increase" class="btn btn-primary btn-sm">+</button>
+                  <button type="submit" name="change" value="decrease" class="btn btn-primary btn-sm">-</button>
+                  <p></p>
+                </form>
+                {% endif %}
                 {% if event.status == 'Open' %}
                 <p class="card-text">Status: <span style="color: green;">{{ event.status }}</span></p>
                 {% elif event.status == 'Closed' %}
@@ -65,7 +73,7 @@
             </select><br><br>
             <label for="quantity">Quantity:</label>
             <input type="number" id="quantity" name="quantity" min="1" value="1">
-            {% if event.status in ['Sold-Out', 'Upcoming'] %}
+            {% if event.status in ['Sold-Out', 'Upcoming', 'Closed'] %}
               <button type="submit" class="btn btn-danger" disabled>Book Now</button>
             {% else %}
               <button type="submit" class="btn btn-danger">Book Now</button>

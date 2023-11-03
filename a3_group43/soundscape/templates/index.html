@@ -14,6 +14,10 @@
                 <div class="jumbotron">
                     <h1 class="display-4">Welcome to SoundScape</h1>
                     <p class="lead">Discover and book the hottest music events!</p>
+                    <form action="{{ url_for('main.searchbar') }}" method="GET" class="d-flex" style="width: 50%; margin-left: 30%;">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
                 </div>
             </div>
         </div>

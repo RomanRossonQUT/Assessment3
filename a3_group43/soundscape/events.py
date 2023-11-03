@@ -127,7 +127,7 @@ def book_event(id):
         db.session.add(booking)
         event.tickets_available -= quantity
         db.session.commit()
-        flash('Event booked successfully.', 'success')
+        flash(f'Event Booked for {booking.quantity} ticket(s)! Your Order ID: #{booking.id}', 'success')
     else:
         flash('Event not found.', 'error')
     return redirect(url_for('event.show', id=id))
@@ -138,3 +138,19 @@ def booking_history():
     # Query the database to get the booking history of the current user
     bookings = Booking.query.filter_by(user_id=current_user.id).all()
     return render_template('booking_history.html', bookings=bookings)
+
+@destbp.route('/<id>/update_tickets_available', methods=['POST'])
+@login_required
+def update_tickets_available(id):
+    if request.method == 'POST':
+        event = Event.query.get(id)
+        if event.user_id == current_user.id:
+            change = request.form.get('change')
+            if change == 'increase':
+                event.tickets_available += 1
+            elif change == 'decrease' and event.tickets_available > 0:
+                event.tickets_available -= 1
+            db.session.commit()
+        else:
+            flash('You are not authorized to update ticket quantity for this event.', 'error')
+    return redirect(url_for('event.show', id=id))

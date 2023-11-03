@@ -32,3 +32,13 @@ def search():
         return render_template('index.html', events=events)  # Rendering the main page template with the search results
     else:
         return redirect(url_for('main.index'))  # Redirecting to the main page if no search query is provided
+
+@mainbp.route('/searchbar')
+def searchbar():
+    search_query = request.args.get('search')
+    if not search_query:
+        events = Event.query.all()  # Get all events when the search bar is empty
+    else:
+        events = Event.query.filter(Event.title.ilike(f'%{search_query}%')).all()
+    return render_template('index.html', events=events)
+
