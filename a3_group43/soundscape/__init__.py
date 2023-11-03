@@ -58,7 +58,27 @@ def create_app():
   # Error handler for 404 not found errors
   @app.errorhandler(404)
   def not_found(e):
-      return render_template("404.html", error=e)
+    return render_template("error.html", error=e)
+
+  # Error handler for 500 internal server errors
+  @app.errorhandler(500)
+  def server_error(e):
+    return render_template("error.html", error=e)
+
+  # Error handler for 502 bad gateway errors
+  @app.errorhandler(502)
+  def bad_gateway(e):
+    return render_template("error.html", error=e)
+
+  # Error handler for 503 service unavailable errors
+  @app.errorhandler(503)
+  def service_unavailable(e):
+    return render_template("error.html", error=e)
+
+  # Error handler for 504 gateway timeout errors
+  @app.errorhandler(504)
+  def gateway_timeout(e):
+    return render_template("error.html", error=e)
 
   # Context processor to provide the current year to templates
   @app.context_processor
