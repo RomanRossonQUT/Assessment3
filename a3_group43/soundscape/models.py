@@ -9,6 +9,8 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(100))
     email = db.Column(db.String(100))
     pass_hash = db.Column(db.String(255))
+    contact_number = db.Column(db.Integer)
+    home_address = db.Column(db.String(400))
 
     def __repr__(self):
         return f"Name: {self.name}"

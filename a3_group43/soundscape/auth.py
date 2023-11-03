@@ -16,14 +16,17 @@ def register():
         username = register.username.data  # Extracting username from the form.
         password_raw = register.password.data  # Extracting password from the form.
         email = register.email.data  # Extracting email from the form.
+        contact_number = register.contact_number.data
+        home_address = register.home_address.data
         user = db.session.scalar(db.select(User).where(User.username == username))  # Querying the database for existing user.
         if user:
             flash('Username already exists, please try another.')  # Notifying with message if the username chosen already exists.
             return redirect(url_for('auth.register'))  # Redirecting to the registration page.
         pass_hash = generate_password_hash(password_raw)  # Generating a hash of the password.
-        new_user = User(username=username, pass_hash=pass_hash, email=email)  # Creating a new User object. #password_hash
+        new_user = User(username=username, pass_hash=pass_hash, email=email, contact_number=contact_number, home_address=home_address)  # Creating a new User object. #password_hash
         db.session.add(new_user)  # Adding the new user to the session.
         db.session.commit()  # Committing the changes to the database.
+        login_user(new_user)
         return redirect(url_for('main.index'))  # Redirecting to the main page after successful registration.
     else:
         return render_template('register.html', form=register, heading='Register')  # Rendering the registration template.
